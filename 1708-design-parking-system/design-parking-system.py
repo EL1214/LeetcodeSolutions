@@ -1,31 +1,14 @@
 class ParkingSystem(object):
 
     def __init__(self, big, medium, small):
-        self.big = big #1
-        self.medium = medium #2
-        self.small = small #3
+        self.slots = [0,big,medium,small]
         
 
     def addCar(self, carType):
-        if carType == 1:
-            if self.big == 0:
-                return False
-            else:
-                self.big -= 1
-                return True
-        if carType == 2:
-            if self.medium == 0:
-                return False
-            else:
-                self.medium -= 1
-                return True
-        else:
-            if self.small == 0:
-                return False
-            else:
-                self.small -= 1
-                return True
-
+        if self.slots[carType] > 0:
+            self.slots[carType] -=1
+            return True
+        return False
             
         
 
